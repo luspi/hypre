@@ -3761,6 +3761,12 @@ hypre_BoomerAMGSetup( void               *amg_vdata,
          HYPRE_ParCSRPilutSetDropTolerance(smoother[j], drop_tol);
          HYPRE_ParCSRPilutSetFactorRowSize(smoother[j], max_nz_per_row);
       }
+      else if (smooth_type == 10 && smooth_num_levels > j)
+      {
+
+         hypre_printf("***** HYPRE ILU SETUP\n");
+
+      }
       else if ( (j < num_levels - 1) ||
                 ((j == num_levels - 1) &&
                  (grid_relax_type[3] !=  9 && grid_relax_type[3] != 99  &&
